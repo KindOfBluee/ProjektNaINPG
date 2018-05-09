@@ -1,0 +1,1 @@
+Wszystkie wa¿ne informacje odnoœnie projektu bêd¹ zamieszcza³ tutaj tak, aby ka¿dy widzia³.
