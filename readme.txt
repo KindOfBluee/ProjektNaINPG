@@ -1,4 +1,6 @@
-	Wszystkie wa¿ne informacje odnoœnie projektu bêd¹ zamieszcza³ tutaj tak,
-aby ka¿dy widzia³. To te¿ jest master, do którego nie bêdziemy dodawaæ bezpoœrednio
-pliki, tylko do brancha, ¿eby mieæ pewnoœæ, ¿e pliki dodane do mastera s¹ sprawdzone
-i dzia³aj¹ tak jak nale¿y.
+	Wszystkie waÅ¼ne informacje odnoÅ›nie projektu bÄ™dÄ… zamieszczaÅ‚ tutaj tak,
+aby kaÅ¼dy widziaÅ‚. To teÅ¼ jest master, do ktÃ³rego nie bÄ™dziemy dodawaÄ‡ bezpoÅ›rednio
+pliki, tylko do brancha, Å¼eby mieÄ‡ pewnoÅ›Ä‡, Å¼e pliki dodane do mastera sÄ… sprawdzone
+i dziaÅ‚ajÄ… tak jak naleÅ¼y.
+
+	Koniec przygotowaÅ„ do projektu - 10.05.2018
