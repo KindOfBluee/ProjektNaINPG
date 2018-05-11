@@ -3,19 +3,20 @@ from random import randrange as rand
 
 
 class Tetrimino:
-    T = [[1, 1, 1],
-         [0, 1, 0]]
-    L = [[0, 0, 1],
-         [1, 1, 1]]
-    J = [[1, 0, 0],
-         [1, 1, 1]]
-    S = [[0, 1, 1],
-         [1, 1, 0]]
-    Z = [[1, 1, 0],
-         [0, 1, 1]]
-    I = [[6, 6, 6, 6]]
-    O = [[7, 7],
-         [7, 7]]
+    shapes = [
+        [[1, 1, 1],
+         [0, 1, 0]],#  T
+        [[0, 0, 1],
+         [1, 1, 1]],#  L
+        [[1, 0, 0],
+         [1, 1, 1]],#  J
+        [[0, 1, 1],
+         [1, 1, 0]],#  S
+        [[1, 1, 0],
+         [0, 1, 1]],#  Z
+        [[6, 6, 6, 6]],#  I
+        [[7, 7],
+         [7, 7]]]#  O
 
 def rotate_clockwise(shape):
     return [[shape[x][y]
@@ -32,6 +33,11 @@ def check_collision(board, shape, offset):
             except IndexError:
                 return True
     return False
+
+def clear_row(board, row, cols):
+    del board[row]
+    return [[ 0 for i in range(cols)]] + board
+
 def join_matrix(mat1, mat2, mat2_off):
     x_off, y_off = mat2_off
     for y, row in enumerate(mat2):
@@ -39,3 +45,9 @@ def join_matrix(mat1, mat2, mat2_off):
             mat1[y+y_off-1][x+x_off] +=val
     return mat1
 
+class Board:
+    dim = []
+    def set_dim(cols, rows):
+        dim = [[ 0 for x in range(cols) ] for y in range(rows)]
+        dim += [[ 1 for x in range(cols)]]
+        return dim
