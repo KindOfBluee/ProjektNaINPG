@@ -1,6 +1,7 @@
 from random import *
 import pygame, sys, os
 
+
 class Tetrino:
     def __init__(self, color, id=0, rotation=0, track_x=5, track_y=0):
         self.x = []
@@ -36,10 +37,10 @@ class Tetrino:
         # O
         if self.id == 1:
             self.shape = [
-                "00200",
-                "00200",
-                "00200",
-                "00200"
+                "00220",
+                "00220",
+                "00000",
+                "00000"
             ]
         # T
         if self.id == 2 and self.rotation % 4 == 0:
@@ -166,11 +167,11 @@ class Tetrino:
             for row_ind, row in enumerate(self.shape):
                 for col_ind, item in enumerate(row):
                     if int(item) == 2:
-                        self.x.append(row_ind+self.track_x)
-                        self.y.append(row_ind+self.track_y)
+                        self.y.append(row_ind + self.track_y)
+                        self.x.append(col_ind - 2 + self.track_x)
             try:
                 for ind, y in enumerate(self.y):
-                    if y > 0 and matrix[self.y[ind]][self.x[ind]] == 1 and self.track == 5 and self.track_y == 0:
+                    if y > 0 and matrix[self.y[ind]][self.x[ind]] == 1 and self.track_x == 5 and self.track_y == 0:
                         self.game_state = 0
                 for i in range(3):
                     if sum(matrix[i]) > 0:
@@ -180,7 +181,7 @@ class Tetrino:
 
     def draw(self, matrix, screen):
         self.tetrino_update(matrix)
-        self.rotation_test(matrix)
+        self.test_rotate(matrix)
         self.check_bounds()
         for index, item in enumerate(self.x):
             screen.blit(self.block, (self.x[index]*20, self.y[index]*20))
@@ -195,19 +196,19 @@ class Tetrino:
             self.y = [i-1 for i in self.y]
             self.deactivate()
         self.y = [i+1 for i in self.y]
-        self.track_x += 1
+        self.track_y += 1
 
     def move_left(self, matrix):
-        self.test_rigth(matrix)
-        self.track_x += 1
+        self.test_left(matrix)
+        self.track_x -= 1
         self.x = [i - 1 for i in self.x]
         if self.collision == 1:
-            self.track_x -= 1
+            self.track_x += 1
             self.x = [i + 1 for i in self.x]
             self.collision = 0
 
     def move_right(self, matrix):
-        self.test_rigth(matrix)
+        self.test_right(matrix)
         self.track_x += 1
         self.x = [i + 1 for i in self.x]
         if self.collision == 1:
@@ -261,7 +262,7 @@ class Tetrino:
         except IndexError:
             pass
 
-    def test_roatate(self, matrix):
+    def test_rotate(self, matrix):
         try:
             rotation_error = 0
             for ind, coord in enumerate(self.x):

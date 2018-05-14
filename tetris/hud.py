@@ -1,6 +1,7 @@
 from random import *
 import pygame
 
+
 class Hud:
     def __init__(self, width, height):
         self.width = width

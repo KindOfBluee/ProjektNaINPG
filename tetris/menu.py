@@ -1,7 +1,9 @@
 from random import *
 import pygame
 
+
 class Menu:
+
     def __init__(self, width, height, bg_color, font_color):
         self.width = width
         self.height = height
@@ -19,9 +21,9 @@ class Menu:
         tetris_font = pygame.font.Font(pygame.font.get_default_font(), 32)
         tetris_font.set_bold(1)
 
-        label_1 = tetris_font.render("TETRIS", self.font_color)
+        label_1 = tetris_font.render("TETRIS", 1, self.font_color)
         label_1_rect = label_1.get_rect()
-        label_1_rect.center(150, 100)
+        label_1_rect.center = (150, 100)
 
         screen.blit(label_1, label_1_rect)
 
@@ -31,40 +33,63 @@ class Menu:
         tetris_font = pygame.font.Font(pygame.font.get_default_font(), 32)
         tetris_font.set_bold(1)
 
-        label_1 = tetris_font.render("INFO", self.font_color)
+        label_1 = tetris_font.render("INFO", 1, self.font_color)
         label_1_rect = label_1.get_rect()
-        label_1_rect.center(150, 100)
+        label_1_rect.center = (150, 100)
 
         tetris_font = pygame.font.SysFont("monospace", 12)
 
-        label_2 = tetris_font.render("> LEFT\n< RIGHT\nV DOWN\nSPACE DROP\n^ ROTATE\nPRESS ANY BUTTON TO CONTINUE", 1, self.font_color)
-
+        label_2 = tetris_font.render("> LEFT", 1, self.font_color)
         label_2_rect = label_2.get_rect()
         label_2_rect.center = (150, 200)
+        label_3 = tetris_font.render("< RIGHT", 1, self.font_color)
+        label_3_rect = label_3.get_rect()
+        label_3_rect.center = (150, 220)
+        label_4 = tetris_font.render("V DOWN", 1, self.font_color)
+        label_4_rect = label_4.get_rect()
+        label_4_rect.center = (150, 240)
+        label_5 = tetris_font.render("SPACE DROP", 1, self.font_color)
+        label_5_rect = label_5.get_rect()
+        label_5_rect.center = (150, 260)
+        label_6 = tetris_font.render("^ ROTATE", 1, self.font_color)
+        label_6_rect = label_6.get_rect()
+        label_6_rect.center = (150, 280)
+        label_7 = tetris_font.render("PRESS ANY BUTTON TO CONTINUE", 1, self.font_color)
+        label_7_rect = label_7.get_rect()
+        label_7_rect.center = (150, 300)
+
+        screen.blit(label_1, label_1_rect)
+        screen.blit(label_2, label_2_rect)
+        screen.blit(label_3, label_3_rect)
+        screen.blit(label_4, label_4_rect)
+        screen.blit(label_5, label_5_rect)
+        screen.blit(label_6, label_6_rect)
+        screen.blit(label_7, label_7_rect)
 
     def update_menu(self, screen):
         tetris_font = pygame.font.Font(pygame.font.get_default_font(), 32)
         tetris_font.set_bold(0)
 
-        bg_singlePlayer = (255*(1-self.singlePlayer), 255*(1-self.singlePlayer), 255*(1-self.singlePlayer))
-        bg_demo = (255*(1-self.demo), 255*(1-self.demo), 255*(1-self.demo))
-        bg_info = (255*(1-self.info), 255*(1-self.info), 255*(1-self.info))
+        bg_singlePlayer = (255 * self.singlePlayer, 255 * self.singlePlayer, 255 * self.singlePlayer)
+        bg_demo = (255 * self.demo, 255 * self.demo, 255 * self.demo)
+        bg_info = (255 * self.info, 255 * self.info, 255 * self.info)
 
-        font_singlePlayer = (255*(1-self.singlePlayer), 255*(1-self.singlePlayer), 255*(1-self.singlePlayer))
-        font_demo = (255*(1-self.demo), 255*(1-self.demo), 255*(1-self.demo))
-        font_info = (255*(1-self.info), 255*(1-self.info), 255*(1-self.info))
+        font_singlePlayer = (150*(1-self.singlePlayer), 150*(1-self.singlePlayer), 150*(1-self.singlePlayer))
+        font_demo = (150*(1-self.demo), 150*(1-self.demo), 150*(1-self.demo))
+        font_info = (150*(1-self.info), 150*(1-self.info), 150*(1-self.info))
 
-        pygame.draw.rect(screen, bg_singlePlayer, (90, 180, 120, 20), 0)
+        pygame.draw.rect(screen, (255, 255, 255), (90, 180, 120, 20), 0)
+
         label_2 = tetris_font.render("1 PLAYER", 1, font_singlePlayer)
         label_2_rect = label_2.get_rect()
         label_2_rect.center = (150, 190)
 
-        pygame.draw.rect(screen, bg_demo, (90, 240, 120, 20), 0)
-        label_3 = tetris_font.render("DEMO", 1, font_demo)
+        pygame.draw.rect(screen, (255, 255, 255), (90, 240, 120, 20), 0)
+        label_3 = tetris_font.render("2 PLAYERS", 1, font_demo)
         label_3_rect = label_3.get_rect()
         label_3_rect.center = (150, 250)
 
-        pygame.draw.rect(screen, bg_info, (90, 300, 120, 20), 0)
+        pygame.draw.rect(screen, (255, 255, 255), (90, 300, 120, 20), 0)
         label_4 = tetris_font.render("INFO", 1, font_info)
         label_4_rect = label_4.get_rect()
         label_4_rect.center = (150, 310)
@@ -73,26 +98,28 @@ class Menu:
         screen.blit(label_3, label_3_rect)
         screen.blit(label_4, label_4_rect)
 
-    def move_cursor(self, directon):
-        if self.demo:
-            if self.direction == 1:
+    def move_cursor(self, direction):
+        if self.singlePlayer:
+            if direction == 1:
+                self.singlePlayer = 0
+                self.info = 1
+            elif direction == -1:
+                self.singlePlayer = 0
+                self.demo = 1
+
+        elif self.demo:
+            if direction == 1:
                 self.demo = 0
                 self.singlePlayer = 1
-            elif directon == -1:
+            elif direction == -1:
                 self.demo = 0
                 self.info = 1
-        if self.singlePlayer:
-            if self.direction == 1:
-                self.singlePlayer = 0
-                self.info = 1
-            elif directon == -1:
-                self.singlePlayer = 0
-                self.demo = 1
-        if self.info:
-            if self.direction == 1:
+
+        elif self.info:
+            if direction == 1:
                 self.info = 0
                 self.demo = 1
-            elif directon == -1:
+            elif direction == -1:
                 self.info = 0
                 self.singlePlayer = 1
 
