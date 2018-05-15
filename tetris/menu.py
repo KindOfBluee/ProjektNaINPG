@@ -7,7 +7,7 @@ class Menu:
     def __init__(self, width, height, bg_color, font_color):
         self.width = width
         self.height = height
-        self.demo = 0
+        self.doublePlayer = 0
         self.singlePlayer = 1
         self.info = 0
         self.start = 0
@@ -71,11 +71,11 @@ class Menu:
         tetris_font.set_bold(0)
 
         bg_singlePlayer = (255 * self.singlePlayer, 255 * self.singlePlayer, 255 * self.singlePlayer)
-        bg_demo = (255 * self.demo, 255 * self.demo, 255 * self.demo)
+        bg_doublePlayer = (255 * self.doublePlayer, 255 * self.doublePlayer, 255 * self.doublePlayer)
         bg_info = (255 * self.info, 255 * self.info, 255 * self.info)
 
         font_singlePlayer = (150*(1-self.singlePlayer), 150*(1-self.singlePlayer), 150*(1-self.singlePlayer))
-        font_demo = (150*(1-self.demo), 150*(1-self.demo), 150*(1-self.demo))
+        font_doublePlayer = (150 * (1 - self.doublePlayer), 150 * (1 - self.doublePlayer), 150 * (1 - self.doublePlayer))
         font_info = (150*(1-self.info), 150*(1-self.info), 150*(1-self.info))
 
         pygame.draw.rect(screen, (255, 255, 255), (90, 180, 120, 20), 0)
@@ -85,7 +85,7 @@ class Menu:
         label_2_rect.center = (150, 190)
 
         pygame.draw.rect(screen, (255, 255, 255), (90, 240, 120, 20), 0)
-        label_3 = tetris_font.render("2 PLAYERS", 1, font_demo)
+        label_3 = tetris_font.render("2 PLAYERS", 1, font_doublePlayer)
         label_3_rect = label_3.get_rect()
         label_3_rect.center = (150, 250)
 
@@ -105,26 +105,26 @@ class Menu:
                 self.info = 1
             elif direction == -1:
                 self.singlePlayer = 0
-                self.demo = 1
+                self.doublePlayer = 1
 
-        elif self.demo:
+        elif self.doublePlayer:
             if direction == 1:
-                self.demo = 0
+                self.doublePlayer = 0
                 self.singlePlayer = 1
             elif direction == -1:
-                self.demo = 0
+                self.doublePlayer = 0
                 self.info = 1
 
         elif self.info:
             if direction == 1:
                 self.info = 0
-                self.demo = 1
+                self.doublePlayer = 1
             elif direction == -1:
                 self.info = 0
                 self.singlePlayer = 1
 
     def reset(self):
-        self.demo = 0
+        self.doublePlayer = 0
         self.singlePlayer = 1
         self.info = 0
         self.start = 0

@@ -37,3 +37,6 @@ class Gameover:
         label_1_rect.center = (150, 350)
 
         screen.blit(label_1, label_1_rect)
+
+    def get_score(self, score):
+        self.score = score

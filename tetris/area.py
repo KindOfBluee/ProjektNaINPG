@@ -10,6 +10,7 @@ class Area:
         self.area = []
         self.lines_cleared = 0
         self.score = 0
+        self.level = 1
 
         array_build = []
         for row in range(int(self.height/20)):
@@ -75,7 +76,9 @@ class Area:
                 update_score += 1
 
         if update_score == 1:
-            self.score += (self.lines_cleared - old_lines_cleared) * count * 100
+            self.score += (self.lines_cleared - old_lines_cleared) * count * 100 * self.level
+            if self.lines_cleared % 10 == 0:
+                self.level += 1
 
     def print_game_info(self, screen):
         font = pygame.font.SysFont("monospace", 12)
@@ -89,5 +92,10 @@ class Area:
         label_2_rect = label_2.get_rect()
         label_2_rect.center = (236, self.height/8*7 - 25)
 
+        label_3 = font.render("LEVEL: %i" % self.level, 1, font_color)
+        label_3_rect = label_3.get_rect()
+        label_3_rect.center = (236, self.height / 8 * 7 - 10)
+
         screen.blit(label_1, label_1_rect)
         screen.blit(label_2, label_2_rect)
+        screen.blit(label_3, label_3_rect)
