@@ -24,3 +24,16 @@ state = {1: 0, 2: 0}
 def move(player, change):
     "Move player position by change."
     state[player] += change
+
+def rectangle(x, y, width, height):
+    "Draw rectangle at (x, y) with given width and height."
+    up()
+    goto(x, y)
+    down()
+    begin_fill()
+    for count in range(2):
+        forward(width)
+        left(90)
+        forward(height)
+        left(90)
+    end_fill()
