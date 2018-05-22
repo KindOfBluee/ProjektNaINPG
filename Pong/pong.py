@@ -37,3 +37,8 @@ def rectangle(x, y, width, height):
         forward(height)
         left(90)
     end_fill()
+def draw():
+    "Draw game and move pong ball."
+    clear()
+    rectangle(-200, state[1], 10, 50)
+    rectangle(190, state[2], 10, 50)
