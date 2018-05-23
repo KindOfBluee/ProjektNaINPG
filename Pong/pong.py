@@ -42,3 +42,11 @@ def draw():
     clear()
     rectangle(-200, state[1], 10, 50)
     rectangle(190, state[2], 10, 50)
+   ball.move(aim)
+    x = ball.x
+    y = ball.y
+
+    up()
+    goto(x, y)
+    dot(10)
+    update()
