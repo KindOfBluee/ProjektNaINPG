@@ -50,3 +50,11 @@ def draw():
     goto(x, y)
     dot(10)
     update()
+  ball.move(aim)
+    x = ball.x
+    y = ball.y
+
+    up()
+    goto(x, y)
+    dot(10)
+    update()
