@@ -1,1 +1,2 @@
 Fix wrong padddle color
+Faster ball movement
