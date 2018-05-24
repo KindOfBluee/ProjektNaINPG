@@ -14,4 +14,4 @@ Dodatkowo dodałem te biblioteki do wirtualnego środowiska z PyCharma, które z
 Aplikacja. Samo repozytorium jest 
 
 	Koniec przygotowań do projektu - 10.05.2018
-	Koniec sprintu 1 - 
+	Koniec sprintu 1 - 17.05.2018
