@@ -38,3 +38,6 @@ while key != 27:                                                   # While Esc k
             key = win.getch()
         key = prevKey
         continue
+
+         if key not in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, 27]:     # If an invalid key is pressed
+        key = prevKey
