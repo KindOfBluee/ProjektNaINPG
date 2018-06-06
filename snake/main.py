@@ -18,3 +18,11 @@ score = 0
 
 snake = [[4,10], [4,9], [4,8]]                                     # Initial snake co-ordinates
 food = [10,20]                                                     # First food co-ordinates
+
+win.addch(food[0], food[1], '*')                                   # Prints the food
+
+while key != 27:                                                   # While Esc key is not pressed
+    win.border(0)
+    win.addstr(0, 2, 'Score : ' + str(score) + ' ')                # Printing 'Score' and
+    win.addstr(0, 27, ' SNAKE ')                                   # 'SNAKE' strings
+    win.timeout(150 - (len(snake)/5 + len(snake)/10)%120)          # Increases the speed of Snake as its length increases
