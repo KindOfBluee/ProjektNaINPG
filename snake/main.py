@@ -51,3 +51,6 @@ while key != 27:                                                   # While Esc k
     if snake[0][1] == 0: snake[0][1] = 58
     if snake[0][0] == 19: snake[0][0] = 1
     if snake[0][1] == 59: snake[0][1] = 1
+        
+        # Exit if snake crosses the boundaries (Uncomment to enable)
+    #if snake[0][0] == 0 or snake[0][0] == 19 or snake[0][1] == 0 or snake[0][1] == 59: break
