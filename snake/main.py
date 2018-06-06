@@ -12,3 +12,9 @@ curses.noecho()
 curses.curs_set(0)
 win.border(0)
 win.nodelay(1)
+
+key = KEY_RIGHT                                                    # Initializing values
+score = 0
+
+snake = [[4,10], [4,9], [4,8]]                                     # Initial snake co-ordinates
+food = [10,20]                                                     # First food co-ordinates
