@@ -26,3 +26,15 @@ while key != 27:                                                   # While Esc k
     win.addstr(0, 2, 'Score : ' + str(score) + ' ')                # Printing 'Score' and
     win.addstr(0, 27, ' SNAKE ')                                   # 'SNAKE' strings
     win.timeout(150 - (len(snake)/5 + len(snake)/10)%120)          # Increases the speed of Snake as its length increases
+
+     prevKey = key                                                  # Previous key pressed
+    event = win.getch()
+    key = key if event == -1 else event 
+
+
+    if key == ord(' '):                                            # If SPACE BAR is pressed, wait for another
+        key = -1                                                   # one (Pause/Resume)
+        while key != ord(' '):
+            key = win.getch()
+        key = prevKey
+        continue
