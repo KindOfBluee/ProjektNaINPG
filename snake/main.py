@@ -57,3 +57,15 @@ while key != 27:                                                   # While Esc k
     
     # If snake runs over itself
     if snake[0] in snake[1:]: break
+        
+        if snake[0] == food:                                            # When snake eats the food
+        food = []
+        score += 1
+        while food == []:
+            food = [randint(1, 18), randint(1, 58)]                 # Calculating next food's coordinates
+            if food in snake: food = []
+        win.addch(food[0], food[1], '*')
+    else:    
+        last = snake.pop()                                          # [1] If it does not eat the food, length decreases
+        win.addch(last[0], last[1], ' ')
+    win.addch(snake[0][0], snake[0][1], '#')
