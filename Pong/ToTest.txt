@@ -1,3 +1,1 @@
-Check paddle movement system
-Check ball strike
-Check ball movement
+Needs last step user tests
