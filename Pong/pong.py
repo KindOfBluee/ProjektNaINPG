@@ -1,4 +1,4 @@
-""" Pong """
+""" Pong   """
 
 from random import choice, random
 from turtle import *
