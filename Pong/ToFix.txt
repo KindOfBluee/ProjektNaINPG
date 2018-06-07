@@ -1,3 +1,0 @@
-Fix wrong padddle color
-Faster ball movement
-Ball gui
