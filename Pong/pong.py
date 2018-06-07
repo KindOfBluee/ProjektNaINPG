@@ -58,3 +58,42 @@ def draw():
     goto(x, y)
     dot(10)
     update()
+
+
+
+
+  
+
+    if y < -200 or y > 200:
+        aim.y = -aim.y
+
+    if x < -185:
+        low = state[1]
+        high = state[1] + 50
+
+        if low <= y <= high:
+            aim.x = -aim.x
+        else:
+            return
+
+    if x > 185:
+        low = state[2]
+        high = state[2] + 50
+
+        if low <= y <= high:
+            aim.x = -aim.x
+        else:
+            return
+
+    ontimer(draw, 50)
+
+setup(420, 420, 370, 0)
+hideturtle()
+tracer(False)
+listen()
+onkey(lambda: move(1, 20), 'w')
+onkey(lambda: move(1, -20), 's')
+onkey(lambda: move(2, 20), 'i')
+onkey(lambda: move(2, -20), 'k')
+draw()
+done()
