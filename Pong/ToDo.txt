@@ -1,2 +1,0 @@
-Add aim system
-add coordinates system
