@@ -27,7 +27,7 @@ while key != 27:                                                   # While Esc k
     win.addstr(0, 27, ' SNAKE ')                                   # 'SNAKE' strings
     win.timeout(150 - (len(snake)/5 + len(snake)/10)%120)          # Increases the speed of Snake as its length increases
 
-     prevKey = key                                                  # Previous key pressed
+    prevKey = key                                                  # Previous key pressed
     event = win.getch()
     key = key if event == -1 else event 
 
@@ -39,8 +39,8 @@ while key != 27:                                                   # While Esc k
         key = prevKey
         continue
 
-         if key not in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, 27]:     # If an invalid key is pressed
-        key = prevKey
+        if key not in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, 27]:     # If an invalid key is pressed
+            key = prevKey
         
          # Calculates the new coordinates of the head of the snake. NOTE: len(snake) increases.
     # This is taken care of later at [1].
