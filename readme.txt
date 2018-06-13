@@ -10,4 +10,7 @@ pip3 install pygame
 pip3 install PyQt5
 pip3 install SIP
 
+Więcej o danej grze możemy znaleźć w plikach readme danej gry.
+
+
 Projekt zakończony 13.06.2018 sukcesem
