@@ -10,8 +10,4 @@ pip3 install pygame
 pip3 install PyQt5
 pip3 install SIP
 
-Dodatkowo dodałem te biblioteki do wirtualnego środowiska z PyCharma, które znajduje się w folderze
-Aplikacja. Samo repozytorium jest 
-
-	Koniec przygotowań do projektu - 10.05.2018
-	Koniec sprintu 1 - 17.05.2018
+Projekt zakończony 13.06.2018 sukcesem
